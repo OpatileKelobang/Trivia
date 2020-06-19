@@ -1,3 +1,5 @@
 ﻿Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>
 <a href="https://www.freepik.com/free-photos-vectors/hand">Hand vector created by freepik - www.freepik.com</a>
+https://opentdb.com/api.php?amount=10&category=21&difficulty=easy&type=multiple
+https://opentdb.com/api.php?amount=10&category=9&difficulty=easy&type=multiple
