@@ -66,6 +66,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -80,8 +81,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="assets\" />
+    <EmbeddedResource Include="assets\correct.png" />
+    <Content Include="assets\credits.txt" />
+    <Content Include="assets\highscore.txt" />
+    <EmbeddedResource Include="assets\wrong.png" />
+    <EmbeddedResource Include="assets\tenor.gif" />
+    <EmbeddedResource Include="assets\right-arrow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

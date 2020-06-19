@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +27,7 @@ namespace Trivia
 
         private void setQuestions()
         {
-            
+
             lblQuestionText.Text = ((Questions)questions[0]).getQuestion();
             lblOptionA.Text = ((Questions)questions[0]).getOption1();
             lblOptionB.Text = ((Questions)questions[0]).getOption2();
@@ -39,12 +40,30 @@ namespace Trivia
             //Console.WriteLine(Answer);
             if (Answer == ((Questions)questions[0]).getAnswer())
             {
-                Console.WriteLine("Correct");
+                lblQuestionStatus.Text = "CORRECT";
+                lblQuestionStatus.ForeColor = Color.DarkGreen;
+                btnCorrect.Enabled = true;
+                btnCorrect.Visible = true;
+                activateNext();
             }
             else
             {
-                Console.WriteLine("Incorrect Answer");
+                lblQuestionStatus.Text = "INCORRECT";
+                lblQuestionStatus.ForeColor = Color.DarkRed;
+                btnIncorrect.Enabled = true;
+                btnIncorrect.Visible = true;
+                activateNext();
             }
+        }
+
+        public void activateNext()
+        {
+            btnNext.Enabled = true;
+            btnOptionA.Enabled = false;
+            btnOptionB.Enabled = false;
+            btnOptionC.Enabled = false;
+            btnOptionD.Enabled = false;
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -72,6 +91,7 @@ namespace Trivia
         {
             Answer = lblOptionA.Text;
             checkAnswer();
+            activateNext();
         }
 
         private void btnOptionB_Click(object sender, EventArgs e)
@@ -90,6 +110,11 @@ namespace Trivia
         {
             Answer = lblOptionD.Text;
             checkAnswer();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
