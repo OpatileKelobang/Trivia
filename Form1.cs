@@ -20,7 +20,8 @@ namespace Trivia
         Questions[] aoQuestions = new Questions[10];
         
         private int count = 0;
-        private int score = 0;
+        private int highScore = 0;
+        private int score;
         private string Answer = "";
         private int questionNumber = 0;
         
@@ -28,25 +29,39 @@ namespace Trivia
         {
             InitializeComponent();
             createQuestionInList();
-            //checkHighScore();
+            checkHighScore();
+            if (highScore > score)
+            {
+                string tempScore = setHighScore();
+                highScore = Int32.Parse(tempScore);
+            }
+
+            lblHighScoreValue.Text = setHighScore();
         }
 
 
         private void checkHighScore()
         {
-            if (score >= Settings.HighScore)
+            if (score > highScore)
             {
-                Settings.HighScore = score;
-                lblHighScoreValue.Text = score.ToString();
+                highScore = score;
+                lblHighScoreValue.Text = highScore.ToString();
                 using (StreamWriter writer =
                     new StreamWriter(
                         "C:\\Users\\Opatile\\source\\repos\\Trivia\\assets\\highscore.txt"))
                 {
-                    writer.WriteLine(score.ToString());
+                    writer.WriteLine(highScore.ToString());
                     writer.Close();
                 }
             }
         }
+
+        public string setHighScore()
+        {
+            string readText = File.ReadAllText("C:\\Users\\Opatile\\source\\repos\\Trivia\\assets\\highscore.txt");
+            return readText;
+        }
+
         private void checkAnswer()
         {
             try
@@ -77,6 +92,17 @@ namespace Trivia
             catch (Exception e)
             {
                 Console.WriteLine("Thank you for playing Trivia!");
+                checkHighScore();
+                btnNext.Enabled = false;
+                btnOptionA.Enabled = false;
+                btnOptionB.Enabled = false;
+                btnOptionC.Enabled = false;
+                btnOptionD.Enabled = false;
+                btnIncorrect.Enabled = false;
+                btnIncorrect.Visible = false;
+                btnCorrect.Enabled = false;
+                btnCorrect.Visible = false;
+                lblQuestionStatus.Visible = false;
             }
         }
 

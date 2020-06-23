@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.lblGameTitle = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.panelQuestionArea = new System.Windows.Forms.Panel();
             this.lblOptionD = new System.Windows.Forms.Label();
@@ -51,25 +50,13 @@
             this.lblHighScore = new System.Windows.Forms.Label();
             this.lblHighScoreValue = new System.Windows.Forms.Label();
             this.lblQuestionStatus = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnIncorrect = new System.Windows.Forms.Button();
             this.btnCorrect = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lblGameTitle = new System.Windows.Forms.Label();
             this.panelQuestionArea.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // lblGameTitle
-            // 
-            this.lblGameTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblGameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGameTitle.Location = new System.Drawing.Point(0, 0);
-            this.lblGameTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.lblGameTitle.Name = "lblGameTitle";
-            this.lblGameTitle.Size = new System.Drawing.Size(800, 40);
-            this.lblGameTitle.TabIndex = 0;
-            this.lblGameTitle.Text = "TRIVIA GAME";
-            this.lblGameTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblGameTitle.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblQuestion
             // 
@@ -293,6 +280,12 @@
             this.lblQuestionStatus.TabIndex = 14;
             this.lblQuestionStatus.Text = "Correct / Incorrect";
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // btnIncorrect
             // 
             this.btnIncorrect.BackColor = System.Drawing.Color.Transparent;
@@ -339,11 +332,19 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
-            // timer1
+            // lblGameTitle
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.lblGameTitle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblGameTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGameTitle.Image = global::Trivia.Properties.Resources.label;
+            this.lblGameTitle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblGameTitle.Location = new System.Drawing.Point(0, 0);
+            this.lblGameTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.lblGameTitle.Name = "lblGameTitle";
+            this.lblGameTitle.Size = new System.Drawing.Size(800, 40);
+            this.lblGameTitle.TabIndex = 0;
+            this.lblGameTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblGameTitle.Click += new System.EventHandler(this.label1_Click);
             // 
             // Form1
             // 

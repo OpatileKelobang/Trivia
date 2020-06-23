@@ -114,6 +114,8 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="assets\label.png" />
+    <EmbeddedResource Include="assets\trivia.png" />
     <EmbeddedResource Include="assets\correct.png" />
     <Content Include="assets\credits.txt" />
     <Content Include="assets\highscore.txt" />
