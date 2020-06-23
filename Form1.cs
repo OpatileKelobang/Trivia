@@ -28,7 +28,7 @@ namespace Trivia
         {
             InitializeComponent();
             createQuestionInList();
-            checkHighScore();
+            //checkHighScore();
         }
 
 
@@ -49,26 +49,34 @@ namespace Trivia
         }
         private void checkAnswer()
         {
-            if (Answer == aoQuestions[count].getAnswer())
+            try
             {
-                lblQuestionStatus.Text = "CORRECT";
-                lblQuestionStatus.Visible = true;
-                lblQuestionStatus.ForeColor = Color.DarkGreen;
-                btnCorrect.Enabled = true;
-                btnCorrect.Visible = true;
-                activateNext();
-                count++;
-                score = score + 5;
-                lblScoreValue.Text = score.ToString();
+                if (Answer == aoQuestions[count].getAnswer())
+                {
+                    lblQuestionStatus.Text = "CORRECT";
+                    lblQuestionStatus.Visible = true;
+                    lblQuestionStatus.ForeColor = Color.DarkGreen;
+                    btnCorrect.Enabled = true;
+                    btnCorrect.Visible = true;
+                    activateNext();
+                    count++;
+                    score = score + 5;
+                    lblScoreValue.Text = score.ToString();
+                }
+                else
+                {
+                    lblQuestionStatus.Text = "INCORRECT";
+                    lblQuestionStatus.Visible = true;
+                    lblQuestionStatus.ForeColor = Color.DarkRed;
+                    btnIncorrect.Enabled = true;
+                    btnIncorrect.Visible = true;
+                    activateNext();
+                    count++;
+                }
             }
-            else
+            catch (Exception e)
             {
-                lblQuestionStatus.Text = "INCORRECT";
-                lblQuestionStatus.Visible = true;
-                lblQuestionStatus.ForeColor = Color.DarkRed;
-                btnIncorrect.Enabled = true;
-                btnIncorrect.Visible = true;
-                activateNext();
+                Console.WriteLine("Thank you for playing Trivia!");
             }
         }
 
@@ -186,12 +194,12 @@ namespace Trivia
                 case 4:
                     aoQuestions[4] = new Questions
                     {
-                        Question = "Who is the current South African Minister of Finance?",
-                        Option1 = "Fikile Mbalula",
-                        Option2 = "Julius Malema",
-                        Option3 = "Bonang Matheba",
-                        Option4 = "Tito Mboweni",
-                        Answer = "Tito Mboweni"
+                        Question = "What is the call sign of any United States Marine Corps aircraft carrying the president of the United States?",
+                        Option1 = "Marine One",
+                        Option2 = "Air Force Once",
+                        Option3 = "Top Gun",
+                        Option4 = "Boeing 747",
+                        Answer = "Marine One"
                     };
 
                     lblQuestionText.Text = aoQuestions[4].getQuestion();
@@ -236,6 +244,60 @@ namespace Trivia
                     lblOptionC.Text = aoQuestions[6].getOption3();
                     lblOptionD.Text = aoQuestions[6].getOption4();
                     break;
+
+                case 7:
+                    aoQuestions[7] = new Questions
+                    {
+                        Question = "What colour jersey is worn by the winners of each stage of the Tour De France?",
+                        Option1 = "Cyan",
+                        Option2 = "Magenta",
+                        Option3 = "Yellow",
+                        Option4 = "Black",
+                        Answer = "Yellow"
+                    };
+
+                    lblQuestionText.Text = aoQuestions[7].getQuestion();
+                    lblOptionA.Text = aoQuestions[7].getOption1();
+                    lblOptionB.Text = aoQuestions[7].getOption2();
+                    lblOptionC.Text = aoQuestions[7].getOption3();
+                    lblOptionD.Text = aoQuestions[7].getOption4();
+                    break;
+
+                case 8:
+                    aoQuestions[8] = new Questions
+                    {
+                        Question = "How many times has the Springbok Rugby team won the world cup?",
+                        Option1 = "1",
+                        Option2 = "2",
+                        Option3 = "3",
+                        Option4 = "4",
+                        Answer = "3"
+                    };
+
+                    lblQuestionText.Text = aoQuestions[8].getQuestion();
+                    lblOptionA.Text = aoQuestions[8].getOption1();
+                    lblOptionB.Text = aoQuestions[8].getOption2();
+                    lblOptionC.Text = aoQuestions[8].getOption3();
+                    lblOptionD.Text = aoQuestions[8].getOption4();
+                    break;
+
+                case 9:
+                    aoQuestions[9] = new Questions
+                    {
+                        Question = "Which boxer was known as “The Greatest” and “The People’s Champion”?",
+                        Option1 = "1",
+                        Option2 = "2",
+                        Option3 = "3",
+                        Option4 = "4",
+                        Answer = "3"
+                    };
+
+                    lblQuestionText.Text = aoQuestions[9].getQuestion();
+                    lblOptionA.Text = aoQuestions[9].getOption1();
+                    lblOptionB.Text = aoQuestions[9].getOption2();
+                    lblOptionC.Text = aoQuestions[9].getOption3();
+                    lblOptionD.Text = aoQuestions[9].getOption4();
+                    break;
             }
         }
 
@@ -266,7 +328,8 @@ namespace Trivia
         private void btnNext_Click(object sender, EventArgs e)
         {
             questionNumber += 1;
-            Console.WriteLine(questionNumber);
+            Console.WriteLine("Question Number: " + questionNumber);
+            Console.WriteLine("Score is " + score);
             createQuestionInList();
             deactivateNext();
         }
