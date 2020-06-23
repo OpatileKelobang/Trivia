@@ -53,6 +53,8 @@ namespace Trivia
                 {
                     writer.WriteLine(highScore.ToString());
                     writer.Close();
+                    HighScoreSplash trophy = new HighScoreSplash();
+                    trophy.Show();
                 }
             }
         }
@@ -222,7 +224,7 @@ namespace Trivia
                 case 4:
                     aoQuestions[4] = new Questions
                     {
-                        Question = "What is the call sign of any United States Marine Corps aircraft carrying the president of the United States?",
+                        Question = "What is the call sign of any United States Marine Corps\n aircraft carrying the president of the United States?",
                         Option1 = "Marine One",
                         Option2 = "Air Force Once",
                         Option3 = "Top Gun",
@@ -240,7 +242,7 @@ namespace Trivia
                 case 5:
                     aoQuestions[5] = new Questions
                     {
-                        Question = "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
+                        Question = "Which company was established on April 1st, 1976 by\n Steve Jobs, Steve Wozniak and Ronald Wayne?",
                         Option1 = "Apple",
                         Option2 = "Microsoft",
                         Option3 = "Atari",
@@ -276,7 +278,7 @@ namespace Trivia
                 case 7:
                     aoQuestions[7] = new Questions
                     {
-                        Question = "What colour jersey is worn by the winners of each stage of the Tour De France?",
+                        Question = "What colour jersey is worn by the winners of each stage of\n the Tour De France?",
                         Option1 = "Cyan",
                         Option2 = "Magenta",
                         Option3 = "Yellow",
@@ -372,6 +374,7 @@ namespace Trivia
             }
             else
             {
+                checkHighScore();
                 btnNext.Enabled = false;
                 btnOptionA.Enabled = false;
                 btnOptionB.Enabled = false;
