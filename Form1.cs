@@ -285,11 +285,11 @@ namespace Trivia
                     aoQuestions[9] = new Questions
                     {
                         Question = "Which boxer was known as “The Greatest” and “The People’s Champion”?",
-                        Option1 = "1",
-                        Option2 = "2",
-                        Option3 = "3",
-                        Option4 = "4",
-                        Answer = "3"
+                        Option1 = "Mohamed Ali",
+                        Option2 = "Mike Tyson",
+                        Option3 = "George Foreman",
+                        Option4 = "Sugar Ray Leonard",
+                        Answer = "Mohamed Ali"
                     };
 
                     lblQuestionText.Text = aoQuestions[9].getQuestion();
@@ -332,6 +332,29 @@ namespace Trivia
             Console.WriteLine("Score is " + score);
             createQuestionInList();
             deactivateNext();
+        }
+
+        private int time_left = 60;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (time_left > 0)
+            {
+                time_left = time_left - 1;
+                lblTimer.Text = time_left.ToString() + " : Seconds Left";
+            }
+            else
+            {
+                btnNext.Enabled = false;
+                btnOptionA.Enabled = false;
+                btnOptionB.Enabled = false;
+                btnOptionC.Enabled = false;
+                btnOptionD.Enabled = false;
+                btnIncorrect.Enabled = false;
+                btnIncorrect.Visible = false;
+                btnCorrect.Enabled = false;
+                btnCorrect.Visible = false;
+                lblQuestionStatus.Visible = false;
+            }
         }
     }
 }
