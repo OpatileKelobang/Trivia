@@ -20,17 +20,18 @@ namespace Trivia
         Questions[] aoQuestions = new Questions[10];
         
         private int count = 0;
-        private int highScore = 0;
+        private int highScore;
         private int score;
         private string Answer = "";
         private int questionNumber = 0;
         
         public Form1()
         {
+            new Settings();
             InitializeComponent();
             createQuestionInList();
             checkHighScore();
-            if (highScore > score)
+            if (highScore > Settings.Score)
             {
                 string tempScore = setHighScore();
                 highScore = Int32.Parse(tempScore);
@@ -42,9 +43,9 @@ namespace Trivia
 
         private void checkHighScore()
         {
-            if (score > highScore)
+            if (Settings.Score > highScore)
             {
-                highScore = score;
+                highScore = Settings.Score;
                 lblHighScoreValue.Text = highScore.ToString();
                 using (StreamWriter writer =
                     new StreamWriter(
@@ -75,8 +76,9 @@ namespace Trivia
                     btnCorrect.Visible = true;
                     activateNext();
                     count++;
-                    score = score + 5;
-                    lblScoreValue.Text = score.ToString();
+                    Settings.Score += Settings.Points;
+                    lblScoreValue.Text = Settings.Score.ToString(); 
+                    Console.WriteLine(Settings.Score + " " + Settings.Points);
                 }
                 else
                 {
