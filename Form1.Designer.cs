@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblGameTitle = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
             this.panelQuestionArea = new System.Windows.Forms.Panel();
@@ -41,7 +42,7 @@
             this.lblA = new System.Windows.Forms.Label();
             this.lblQuestionText = new System.Windows.Forms.Label();
             this.btnOptionA = new System.Windows.Forms.Button();
-            this.lblAnswerButtons = new System.Windows.Forms.Label();
+            this.lblTimer = new System.Windows.Forms.Label();
             this.btnOptionB = new System.Windows.Forms.Button();
             this.btnOptionC = new System.Windows.Forms.Button();
             this.btnOptionD = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             this.btnIncorrect = new System.Windows.Forms.Button();
             this.btnCorrect = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelQuestionArea.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -193,15 +195,15 @@
             this.btnOptionA.UseVisualStyleBackColor = true;
             this.btnOptionA.Click += new System.EventHandler(this.btnOptionA_Click);
             // 
-            // lblAnswerButtons
+            // lblTimer
             // 
-            this.lblAnswerButtons.AutoSize = true;
-            this.lblAnswerButtons.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnswerButtons.Location = new System.Drawing.Point(531, 100);
-            this.lblAnswerButtons.Name = "lblAnswerButtons";
-            this.lblAnswerButtons.Size = new System.Drawing.Size(99, 29);
-            this.lblAnswerButtons.TabIndex = 5;
-            this.lblAnswerButtons.Text = "Answer:";
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(663, 103);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(71, 29);
+            this.lblTimer.TabIndex = 5;
+            this.lblTimer.Text = "00:60";
             // 
             // btnOptionB
             // 
@@ -337,6 +339,10 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,7 +359,7 @@
             this.Controls.Add(this.btnOptionD);
             this.Controls.Add(this.btnOptionC);
             this.Controls.Add(this.btnOptionB);
-            this.Controls.Add(this.lblAnswerButtons);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnOptionA);
             this.Controls.Add(this.panelQuestionArea);
             this.Controls.Add(this.lblQuestion);
@@ -384,7 +390,7 @@
         private System.Windows.Forms.Label lblB;
         private System.Windows.Forms.Label lblA;
         private System.Windows.Forms.Button btnOptionA;
-        private System.Windows.Forms.Label lblAnswerButtons;
+        private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Button btnOptionB;
         private System.Windows.Forms.Button btnOptionC;
         private System.Windows.Forms.Button btnOptionD;
@@ -396,6 +402,7 @@
         private System.Windows.Forms.Label lblQuestionStatus;
         private System.Windows.Forms.Button btnCorrect;
         private System.Windows.Forms.Button btnIncorrect;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
